@@ -1,0 +1,92 @@
+#:kivy 2.0.1
+<work>:
+    BoxLayout
+        orientation: "vertical"
+        size: root.width, root.height
+        Label:
+            id:"titulo"
+            background_color: 'red'
+            text: "Bienvenido a la interfaz de usuario Ev3"
+            font_size: 20
+            multiline: False
+            haling: "rigth"
+        GridLayout
+            cols: 2
+            padding: 10
+            Image:
+                source: "LATERAL.PNG"
+                border: 0.80, 0.80, 0.80, 0.80
+                #allow_stretch: True
+                #keep_ratio: False
+                size: 150, 150
+            Image:
+                
+                source: "FRONTAL.png"
+                border: 0.80, 0.80, 0.80, 0.80
+                #allow_stretch: True
+                #keep_ratio: False
+                size: 150, 150       
+        RoundedButton:  
+            text: "Captar palabras especificas"
+            font_size: 19
+            pos_hint: {'center_x':0.5}
+            size_hint:(1, .3)
+            #border: 0.80, 0.80, 0.80, 0.80
+            #background_color: ()
+            on_press: root.thr()
+       
+       
+        Label:
+            
+            id: input_n
+            text: " "
+            font_size: 15
+            multiline: True
+            haling: "rigth"
+            size_hint: (1, 0.39)
+            
+
+
+        GridLayout:
+            cols: 3
+            spacing: 20
+            padding: 10
+            RoundedButton:
+                text: "Cerrar"
+                font_size: 12
+                pos_hint: {'center_x':0.5}
+                size_hint:(None, None)
+                width:110
+                height:60
+                on_press: root.cerrar()
+            RoundedButton:
+                text: "Servidor"
+                font_size: 12
+                pos_hint: {'center_x':0.5}
+                size_hint:(None, None)
+                width:110
+                height:60
+                on_press: root.server()
+            RoundedButton:
+                text: "Escuchar"
+                font_size: 12
+                pos_hint: {'center_x':0.5}
+                size_hint:(None, None)
+                width:110
+                height:60
+                on_press: root.palabra()
+      
+<RoundedButton@Button>:
+    background_color:(0,0,0,0)
+    background_normal: ""
+    canvas.before:
+        Color:
+            rgba:(255/255, 0/255, 0/255, 1)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [25]    
+
+
+        
+
